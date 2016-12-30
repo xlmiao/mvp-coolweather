@@ -113,7 +113,7 @@ public class WeatherInfoPresenter extends BasePresenter implements WeatherInfoCo
                            DbUtilty.handleProvinceResponse(provinces);
                            mFragment.showInfo(provinces);
                        }else{
-                           Toast.makeText(mActivity,"provinces为空",Toast.LENGTH_SHORT).show();
+                           Toast.makeText(mActivity,"provinces" + mActivity.getResources().getString(R.string.null_data),Toast.LENGTH_SHORT).show();
                        }
                    }
 
@@ -144,7 +144,7 @@ public class WeatherInfoPresenter extends BasePresenter implements WeatherInfoCo
                         DbUtilty.handleCityResponse(cities,selectedProvince.getProvinceCode());
                         mFragment.showInfo(DataSupport.where("provinceCode = ?", String.valueOf(province.getProvinceCode())).find(City.class));
                     }else{
-                        Toast.makeText(mActivity,"cities为空",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mActivity,"cities" + mActivity.getResources().getString(R.string.null_data),Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -175,7 +175,7 @@ public class WeatherInfoPresenter extends BasePresenter implements WeatherInfoCo
                         DbUtilty.handleCountyResponse(counties, selectedCity.getCityCode());
                         mFragment.showInfo(DataSupport.where("cityCode = ?", String.valueOf(city.getCityCode())).find(County.class));
                     }else{
-                        Toast.makeText(mActivity,"counties为空",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mActivity,"counties" + mActivity.getResources().getString(R.string.null_data),Toast.LENGTH_SHORT).show();
                     }
                 }
 
