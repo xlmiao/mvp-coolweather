@@ -24,13 +24,14 @@ public class HttpApi {
     /**
      * 请求超时时间
      */
+
+    /**
+     * OkHttp3 的应用 可加载 头 固定参数 Interceptor cookie等
+     */
     private static final int DEFAULT_TIMEOUT = 10000;
 
     public  static IHttpService getDefaultApi(){
         if(null == ERVICE){
-            /**
-             * OkHttp3 的应用 可加载 头 固定参数 Interceptor cookie等
-             */
             OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
             okHttpClientBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
 
@@ -39,7 +40,7 @@ public class HttpApi {
                 public Response intercept(Chain chain) throws IOException {
                     Request request = chain.request();
                     HttpUrl httpUrl = request.url().newBuilder()
-                            .addQueryParameter("","")
+                            //.addQueryParameter("","")
                             .build();
 
                     request.newBuilder() //可查看 发送的httpUrl详细信息，可以看Https

@@ -177,6 +177,6 @@ public class WeatherActivity extends BaseActivity implements WeatherContract.Vie
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        savedInstanceState.putString(currentWeatherId, currentWeatherId);
+        //savedInstanceState.putString(currentWeatherId, currentWeatherId);
     }
 }

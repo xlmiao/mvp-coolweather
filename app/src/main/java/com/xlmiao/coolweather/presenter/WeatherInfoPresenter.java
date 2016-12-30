@@ -1,6 +1,7 @@
 package com.xlmiao.coolweather.presenter;
 
 import android.app.Activity;
+import android.widget.Toast;
 
 import com.xlmiao.coolweather.R;
 import com.xlmiao.coolweather.common.ActivityLifeCycleEvent;
@@ -111,6 +112,8 @@ public class WeatherInfoPresenter extends BasePresenter implements WeatherInfoCo
                        if(provinces.size() > 0){
                            DbUtilty.handleProvinceResponse(provinces);
                            mFragment.showInfo(provinces);
+                       }else{
+                           Toast.makeText(mActivity,"provinces为空",Toast.LENGTH_SHORT).show();
                        }
                    }
 
@@ -140,6 +143,8 @@ public class WeatherInfoPresenter extends BasePresenter implements WeatherInfoCo
                     if(cities.size() > 0){
                         DbUtilty.handleCityResponse(cities,selectedProvince.getProvinceCode());
                         mFragment.showInfo(DataSupport.where("provinceCode = ?", String.valueOf(province.getProvinceCode())).find(City.class));
+                    }else{
+                        Toast.makeText(mActivity,"cities为空",Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -165,10 +170,12 @@ public class WeatherInfoPresenter extends BasePresenter implements WeatherInfoCo
                 }
 
                 @Override
-                public void onSuccess(List<County> cities) {
-                    if(cities.size() > 0){
-                        DbUtilty.handleCountyResponse(cities, selectedCity.getCityCode());
+                public void onSuccess(List<County> counties) {
+                    if(counties.size() > 0){
+                        DbUtilty.handleCountyResponse(counties, selectedCity.getCityCode());
                         mFragment.showInfo(DataSupport.where("cityCode = ?", String.valueOf(city.getCityCode())).find(County.class));
+                    }else{
+                        Toast.makeText(mActivity,"counties为空",Toast.LENGTH_SHORT).show();
                     }
                 }
 

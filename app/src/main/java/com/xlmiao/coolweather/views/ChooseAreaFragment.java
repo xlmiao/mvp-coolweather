@@ -56,7 +56,7 @@ public class ChooseAreaFragment extends BaseFragment implements WeatherInfoContr
         mTitleText = (TextView) view.findViewById(R.id.title_text);
         mBackBtn = (Button) view.findViewById(R.id.back_button);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        // ButterKnife.bind(this,view);
+         //ButterKnife.bind(this,view);
         mTitleText.setText(getResources().getString(R.string.china_name));
         mBackBtn.setVisibility(View.INVISIBLE);
         mBackBtn.setOnClickListener(mBackBtnClickListener);

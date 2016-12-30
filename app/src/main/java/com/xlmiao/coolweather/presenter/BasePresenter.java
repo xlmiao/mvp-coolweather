@@ -17,12 +17,11 @@ import rx.subscriptions.CompositeSubscription;
 
 public class BasePresenter<V> {
     public V mvpView;
-    protected IHttpService iHttpService;
+    protected IHttpService iHttpService = HttpApi.getDefaultApi();;
     private CompositeSubscription compositeSubscription;
 
     public void attachView(V mvpView) {
         this.mvpView = mvpView;
-        iHttpService = HttpApi.getDefaultApi();
     }
 
     public void detachView() {

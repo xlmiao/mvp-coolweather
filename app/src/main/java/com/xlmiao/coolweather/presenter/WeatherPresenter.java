@@ -125,7 +125,7 @@ public class WeatherPresenter extends BasePresenter implements WeatherContract.P
     public void loadBingPic() {
         SharedPreferences pref =  PreferenceManager.getDefaultSharedPreferences(activity);
         String bingPicPath = pref.getString("bing_pic", null);
-        if (bingPicPath == null) {
+        if (bingPicPath != null) {
             activity.setBingPicImg(bingPicPath);
             activity.setRefreshing();
         } else {

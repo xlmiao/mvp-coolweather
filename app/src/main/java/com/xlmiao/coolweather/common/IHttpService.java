@@ -21,7 +21,7 @@ public interface IHttpService {
     String API_SERVER_URL = "http://guolin.tech/";
     String APP_SERVER_URL = "http://www.weather.com.cn/";
     String APP_KEY = "915a18c7db5845cda5422d15c68c6775";
-    String BING_PIC_PATH = "http://cn.bing.com/az/hprichbg/rb/SouthamptonCommon_ZH-CN8102690225_1920x1080.jpg";
+    String BING_PIC_PATH = "http://cn.bing.com/az/hprichbg/rb/ZellerHorn_ZH-CN7123868469_1920x1080.jpg";
 
     @GET("/api/china")
     Observable<List<Province>> getPrivince();

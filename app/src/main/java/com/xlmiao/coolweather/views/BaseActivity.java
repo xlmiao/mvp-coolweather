@@ -25,7 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         /**
          * 这里为了体验MVP模式没有使用
          */
-        AppManager.getAppManager().addActivity(this); //添加 全局activity
+      //  AppManager.getAppManager().addActivity(this); //添加 全局activity
         if (Build.VERSION.SDK_INT >= 21) {
             View decorView = getWindow().getDecorView();
             decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -63,7 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         lifecycleEventPublishSubject.onNext(ActivityLifeCycleEvent.DESTROY);
-        AppManager.getAppManager().finishActivity();
+        //AppManager.getAppManager().finishActivity();
         super.onDestroy();
     }
 
